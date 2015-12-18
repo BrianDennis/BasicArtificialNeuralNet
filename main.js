@@ -55,8 +55,19 @@ function runNetwork(e){
     }
 
     function backProp(input, rounds){
-      
+
+      var desiredOutput = input[input.length-1];
+      input = input.substring(input.length-1,1);
+
+      for (var i = 0; i < rounds; i++){
+        var output = forwardProp(input);
+        adjustWeights()
+      }
     };
+
+    function adjustWeights(input, output, desiredOutput){
+
+    }
 
     function forwardProp(input){
       function computeLayer(input,layer){
@@ -70,8 +81,18 @@ function runNetwork(e){
       for(var i = 0; i < perceptrons.length; i++){
         input = computeLayer(input, perceptrons[i]);
       }
-      return input;
+      return input[0];
     };
+
+    function printWeights(){
+      var printString = "";
+      for (var i = 0; i < perceptrons.length; i++){
+        printString += "Layer " + (i+1) + ": ";
+        for (var k = 0; k < perceptrons[i].length; k++){
+          printString += "Perceptron " + (k+1) + ": " + perceptrons[i][k].weights.toString();
+        }
+      }
+    }
 
   };
 
