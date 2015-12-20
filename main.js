@@ -60,7 +60,11 @@ function runNetwork(e){
       input = input.substring(input.length-1,1);
 
       for (var i = 0; i < rounds; i++){
+
+        //forward propagate the network
         var output = forwardProp(input);
+
+        //adjust all of the weights
         adjustWeights()
       }
     };
@@ -68,6 +72,10 @@ function runNetwork(e){
     function adjustWeights(input, output, desiredOutput){
 
     }
+
+    function calculateError(output, desiredOutput){
+
+    };
 
     function forwardProp(input){
       function computeLayer(input,layer){
