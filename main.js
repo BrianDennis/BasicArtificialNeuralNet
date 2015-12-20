@@ -74,7 +74,7 @@ function runNetwork(e){
     }
 
     function calculateError(output, desiredOutput){
-
+        return (1/2)*Math.pow((output - desiredOutput),2);
     };
 
     function forwardProp(input){
